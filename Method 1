@@ -1,0 +1,38 @@
+//Write a program to check can all number of an array be made equal in Java
+
+import java.util.*;
+public class Main
+{
+    public static boolean make_equal(int arr[], int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+             // Divide number by 2
+            while (arr[i] % 2 == 0)
+                arr[i] /= 2;
+
+             // Divide number by 3
+            while (arr[i] % 3 == 0)
+                arr[i] /= 3;
+        }
+         // Remaining numbers
+        for (int i = 1; i < n; i++)
+            if (arr[i] != arr[0]){
+                return false;
+            }
+        return true;
+    }
+
+    public static void main (String[] args)
+    {
+        int arr[] = { 50, 100, 75 };
+    
+        int m = arr.length;
+        
+        if (make_equal(arr, m))
+            System.out.print("Yes");
+        else
+            System.out.print("No");
+    }
+
+}
